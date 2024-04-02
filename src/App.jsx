@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css'
 
 function App() {
@@ -37,10 +38,34 @@ function App() {
     </div>
     );
 
+    
+    const [login, setLogin] = useState(false);
+
+    let bColor = "red";
+    if(login){
+      bColor = "green";
+    } else {
+      bColor = "red";
+    }
+
+    function handleClick(){
+      if(!login){
+        setLogin(true);
+      } else {
+        setLogin(false);
+      }
+    }
+
   return (
     <>
       <h1>World Building Manager</h1>
       
+      <div>
+        <button onClick={handleClick} style={{color: bColor}}>
+          Login
+        </button>
+      </div>
+
       {/* This will most likely become a component */}
       <div> 
         <h2>Latest Entries:</h2>
