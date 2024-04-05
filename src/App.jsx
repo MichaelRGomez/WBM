@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css'
+import Login from './components/Login'
 
 function App() {
   const entries = [
@@ -38,22 +39,22 @@ function App() {
     </div>
     );
 
-    
     const [login, setLogin] = useState(false);
 
     let bColor = "red";
+
     if(login){
-      bColor = "green";
+        bColor = "green";
     } else {
-      bColor = "red";
+        bColor = "red";
     }
 
     function handleClick(){
-      if(!login){
-        setLogin(true);
-      } else {
-        setLogin(false);
-      }
+        if(!login){
+            setLogin(true);
+        } else {
+            setLogin(false);
+        }
     }
 
   return (
@@ -61,9 +62,13 @@ function App() {
       <h1>World Building Manager</h1>
       
       <div>
-        <button onClick={handleClick} style={{color: bColor}}>
-          Login
-        </button>
+        <Login handleClick={handleClick} bColor={bColor} />
+      </div>
+
+      <br/>
+
+      <div>
+        <Login handleClick={handleClick} bColor={bColor}/>
       </div>
 
       {/* This will most likely become a component */}
