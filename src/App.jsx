@@ -1,4 +1,5 @@
 import './App.css'
+import placeholder from '../public/placeholder.png'
 
 function App() {
   return (
@@ -12,8 +13,22 @@ function App() {
       </nav>
       <div>
         The meat of the website
-        <div>
-          context that was definitely fetched from a database
+        <div> {/*Art Post*/}
+          <p>Title</p>
+          <div>
+            <img src={placeholder} alt="place holder image" style={{height: "200px"}}/>
+          </div>
+          <p>Words related to Media</p>
+        </div>
+        <div> {/*Art Post*/}
+          <p>Title</p>
+          <div>Media</div>
+          <p>Words related to Media</p>
+        </div>
+        <div> {/*Art Post*/}
+          <p>Title</p>
+          <div>Media</div>
+          <p>Words related to Media</p>
         </div>
       </div>
     </>
