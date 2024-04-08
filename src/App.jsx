@@ -1,11 +1,6 @@
 import './App.css'
 
-import Posts from './pages/Posts'
-import Project from './pages/Project'
-import Projects from './pages/Projects'
-import CreateArt from './pages/CreateArt'
-import CreateProject from './pages/CreateProject'
-import Navigation from './layout/Navigation'
+import Posts from './pages/Posts';
 
 function App() {
   const mediaHeight = "400px";
@@ -13,19 +8,7 @@ function App() {
 
   return (
     <>
-      <Project mediaHeight={mediaHeight} splashWidth={splashWidth}/>
-
-      <hr/>
-
-      <CreateArt/>
-      
-      <hr/>
-
-      <CreateProject/>
-
-      <hr/>
-
-      <Projects />
+      <Posts mediaHeight={mediaHeight} splashWidth={splashWidth}/>
     </>
   );
 };

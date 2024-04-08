@@ -8,12 +8,14 @@ export default function Root(){
             <nav>
                 <a href={`/App`} >Home</a>
                 <a href={`/Posts`} >Posts</a>
-                <a href={`/Projects`} >Projects</a>
+                <a href={`/Project/List`} >Projects</a>
+                <a href={`/Post/Create`}> Create Art</a>
+                <a href={`/Project/Create`}>Create Project</a>
                 <a href={`/Contact`} >Contact</a>
             </nav>
 
             <div id="detail">
-                <Outlet />
+                <Outlet/>
             </div>
         </>
     )
