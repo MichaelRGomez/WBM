@@ -1,4 +1,4 @@
-import placeHolder from '../../public/placeholder.png'
+import placeHolder from '/placeholder.png'
 
 export default function Projects({miniSplashHeight}){
     

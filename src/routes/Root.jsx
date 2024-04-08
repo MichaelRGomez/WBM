@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom"
 
 export default function Root(){
     return (
-        <>
+        <div className="font-bold">
             <h1>Website header text</h1>
 
             <nav>
@@ -17,6 +17,6 @@ export default function Root(){
             <div id="detail">
                 <Outlet/>
             </div>
-        </>
+        </div>
     )
 }
