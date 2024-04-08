@@ -1,22 +1,14 @@
 import { Outlet } from "react-router-dom"
+import Nav from "../components/Nav"
 
 export default function Root(){
     return (
-        <div className="font-bold">
-            <h1>Website header text</h1>
-
-            <nav>
-                <a href={`/App`} >Home</a>
-                <a href={`/Posts`} >Posts</a>
-                <a href={`/Project/List`} >Projects</a>
-                <a href={`/Post/Create`}> Create Art</a>
-                <a href={`/Project/Create`}>Create Project</a>
-                <a href={`/Contact`} >Contact</a>
-            </nav>
+        <>
+            <Nav/>
 
             <div id="detail">
                 <Outlet/>
             </div>
-        </div>
+        </>
     )
 }
