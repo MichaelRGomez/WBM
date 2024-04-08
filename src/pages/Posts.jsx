@@ -2,7 +2,7 @@ import placeholder from '/placeholder.png'
 import world from '/world.gif'
 import funny from '/funny.mp4'
 
-export default function Posts(){
+export default function Posts({mediaHeight}){
     return(
         <>
         The meat of the website

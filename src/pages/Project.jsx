@@ -1,6 +1,6 @@
 import placeholder from '/placeholder.png'
 
-export default function Project(mediaHeight, splashWidth){
+export default function Project({mediaHeight, splashWidth}){
     return(
         <>
         The other meat of the website
