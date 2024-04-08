@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
 import {
   createBrowserRouter,
   RouterProvider
@@ -12,6 +11,7 @@ import Posts from './pages/Posts.jsx';
 import Projects from './pages/Projects.jsx';
 import CreateArt from './pages/CreateArt.jsx';
 import CreateProject from './pages/CreateProject.jsx';
+import Home from './pages/Home.jsx'
 
 const mediaHeight = "400px";
 const splashWidth = "900px";
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "App",
-        element: <App/>
+        path: "Home",
+        element: <Home mediaHeight={mediaHeight}/>,
       },
       {
         path: "Posts",

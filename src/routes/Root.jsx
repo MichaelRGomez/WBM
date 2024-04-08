@@ -6,7 +6,10 @@ export default function Root(){
         <>
             <Nav/>
 
-            <div id="detail">
+            <div id="detail"
+                className="
+                    mx-10 mt-3
+                ">
                 <Outlet/>
             </div>
         </>
