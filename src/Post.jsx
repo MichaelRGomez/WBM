@@ -1,68 +1,57 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import Buffer from 'buffer';
 
 export default function Post() {
     const [post, setPost] = useState(null);
-    const [media, setMedia] = useState(null);
 
     useEffect(() => {
         axios.get("http://localhost:3001/post/1")
             .then(response => {
                 setPost(response.data);
-                const file = response.data.path;
-                const type = response.data.type;
-
-                let mediaFolder;
-
-                switch (type) {
-                    case ".png":
-                    case ".jpg":
-                    case ".jpeg":
-                        mediaFolder = "image";
-                        break;
-                    case ".gif":
-                        mediaFolder = "gif";
-                        break;
-                    case ".mp4":
-                        mediaFolder = "video";
-                        break;
-                    default:
-                        return;
-                }
-
-                axios.get(`http://localhost:3001/${mediaFolder}/${file}`, { responseType: 'arraybuffer' })
-                    .then(response => {
-                        const base64 = btoa(new Uint8Array(response.data).reduce((data, byte) => data + String.fromCharCode(byte), ''));
-                        setMedia(`data:${response.headers['content-type'].toLowerCase()};base64,${base64}`);
-                    })
-                    .catch(error => {
-                        console.error("Error fetching media data:", error);
-                    });
             })
             .catch(error => {
                 console.error("Error fetching post data:", error);
             });
     }, []);
 
+
+    let media = null
+
+    if(post){
+        if(post.type === '.mp4'){
+            media = (
+                <video controls style={{maxWidth: "100%", maxHeight:"85vh"}}  > <source src={`http://localhost:3001/media/${post.path}`} type="video/mp4"/> </video>
+            );
+        } else {
+            media = (
+                <img  src={`http://localhost:3001/media/${post.path}`} style={{maxWidth: "100%"}}/>
+            );
+        }
+    }
+
     return (
-        <>
+        <div className="
+        border-y-4 
+        border-black
+        py-2
+        mx-20
+        
+        grid
+        grid-cols-3
+        "
+        style={{maxHeight:"90vh"}} >
             {post ? (
                 <>
-                    <h1>{post.title}</h1>
-                    {media && (
-                        media.startsWith('data:image') ? (
-                            <img src={media} alt={post.alt} />
-                        ) : (
-                            <video controls>
-                                <source src={media} type="video/mp4" />
-                            </video>
-                        )
-                    )}
+                    <div>
+                        <h1 className="py-2 text-4xl font-bold tracking-widest">{post.title}</h1>
+                        <p className='text-lg tracking-tight'>{post.description}</p>
+                        <p className='text-sm text-gray-400'>{post.date}</p>                    
+                    </div>
+                    <div className='col-span-2 place-self-center' >{media}</div>
                 </>
             ) : (
                 <p>Loading...</p>
             )}
-        </>
+        </div>
     )
 }
