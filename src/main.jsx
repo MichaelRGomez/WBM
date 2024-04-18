@@ -5,8 +5,20 @@ import {
   RouterProvider
 } from "react-router-dom";
 import './index.css';
+import Root from './Root';
+import Post from './Post';
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "post",
+        element: <Post />
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
