@@ -5,7 +5,7 @@ export default function Post() {
     const [post, setPost] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/post/1")
+        axios.get("http://192.168.10.115:3001/post/4")
             .then(response => {
                 setPost(response.data);
             })
@@ -20,11 +20,11 @@ export default function Post() {
     if(post){
         if(post.type === '.mp4'){
             media = (
-                <video controls style={{maxWidth: "100%", maxHeight:"85vh"}}  > <source src={`http://localhost:3001/media/${post.path}`} type="video/mp4"/> </video>
+                <video controls style={{maxWidth: "100%", maxHeight:"85vh"}}  > <source src={`http://192.168.10.115:3001/media/${post.path}`} type="video/mp4"/> </video>
             );
         } else {
             media = (
-                <img  src={`http://localhost:3001/media/${post.path}`} style={{maxWidth: "100%"}}/>
+                <img  src={`http://192.168.10.115:3001/media/${post.path}`} style={{maxWidth: "100%"}}/>
             );
         }
     }
